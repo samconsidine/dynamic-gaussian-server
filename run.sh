@@ -23,4 +23,5 @@ xauth -f Xauthority add ${HOST_DOCKER_IP}:${DISPLAY_NUMBER} MIT-MAGIC-COOKIE-1 $
 docker run -it --rm \
   -e DISPLAY=${HOST_DOCKER_IP}:${DISPLAY_NUMBER} \
   -v ${PWD}/Xauthority:/home/${CONTAINER_HOME}/.Xauthority \
+  --gpus all --runtime=nvidia \
   docker-x-test /bin/bash
